@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "MSCustomTabBar.h"
+
 @interface MSTabBarController : UITabBarController
+
+@property (nonatomic, copy) selectAction clickBtn;
+
 
 @end

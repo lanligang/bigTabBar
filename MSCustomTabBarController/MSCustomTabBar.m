@@ -6,16 +6,17 @@
 //  Copyright © 2017年 MrSong. All rights reserved.
 //
 
-//环形间距
-#define SPACE_CERTER_BTN 3
+
+
 
 
 #import "MSCustomTabBar.h"
 
+#import "BarMacro.h"
+
+
 @interface MSCustomTabBar	()
 
- /// 中间凸起的按钮
-@property (nonatomic, strong) UIButton *centerBtn;
 
 @property (nonatomic, strong) CAShapeLayer		*circleLayer;
 
@@ -34,7 +35,6 @@
  if (self)
   {
   
-
   [self addSubview:self.centerBtn];
     [self.layer addSublayer:self.circleLayer];
  }
@@ -81,6 +81,10 @@
   frame.size.width = barItemWidth;
   view.frame = frame;
  }];
+ 
+  //曲线半径
+ CGFloat radius =centerBtnHeight/2.0f+SPACE_CERTER_BTN;
+ 
   // 把中间按钮带到视图最前面
  [self bringSubviewToFront:self.centerBtn];
  
@@ -88,8 +92,6 @@
   //计算高度
  CGPoint buttonCenterPoint = self.centerBtn.center;
  
-  //曲线半径
- CGFloat radius =centerBtnHeight/2.0f+SPACE_CERTER_BTN;
  
  
  CGFloat h1 = self.centerBtn.center.y;
@@ -99,11 +101,21 @@
   //具体公式为下面
  CGFloat space = sqrt(1-pow((h1/r),2))*r;
  
+  CGPoint begainPoint0 = (CGPoint){0,0};
+ 
  CGPoint begainPoint = (CGPoint){buttonCenterPoint.x-space,0};
  
+ CGPoint begainPoint2 = (CGPoint){buttonCenterPoint.x+space,0};
+ 
+ CGPoint point3 = (CGPoint){barWidth,0};
+ 
+ CGPoint point4 = (CGPoint){barWidth,barHeight};
+  CGPoint point5 = (CGPoint){0,barHeight};
  
  [self.cirCleBezierPath removeAllPoints];
- [_cirCleBezierPath moveToPoint:begainPoint];
+ [_cirCleBezierPath moveToPoint:begainPoint0];
+ 
+ [_cirCleBezierPath addLineToPoint:begainPoint];
  
  
  CGFloat startAngle =M_PI+asin(h1/r);
@@ -114,8 +126,16 @@
  
  [_cirCleBezierPath addArcWithCenter:buttonCenterPoint radius:r startAngle:startAngle endAngle:endAngle clockwise:YES];
  
- _circleLayer.fillColor = [UIColor colorWithRed:237.0f/255.0f green:237.0f/255.0f blue:237.0f/255.0f alpha:0.98].CGColor;
+  [_cirCleBezierPath addLineToPoint:begainPoint2];
  
+   [_cirCleBezierPath addLineToPoint:point3];
+	[_cirCleBezierPath addLineToPoint:point4];
+ 	[_cirCleBezierPath addLineToPoint:point5];
+
+ 
+ 
+ _circleLayer.fillColor = [CustomBar_BarBackGroundColor colorWithAlphaComponent:0.99].CGColor;
+ _circleLayer.lineWidth = 0.5f;
  _circleLayer.strokeColor = [UIColor lightGrayColor].CGColor;
 
  self.circleLayer.path = _cirCleBezierPath.CGPath;
@@ -176,9 +196,15 @@
 }
 
 
-
 -(void)clickCenterBtn:(UIButton *)button
 {
+ 
+ __block UIButton *actionBtn = button;
+ 
+ if (self.clickBtn)
+ {
+    _clickBtn(actionBtn);
+ }
  
 }
 

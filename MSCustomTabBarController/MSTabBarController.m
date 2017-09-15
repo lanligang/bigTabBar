@@ -7,9 +7,10 @@
 //
 
 #import "MSTabBarController.h"
-#import "MSCustomTabBar.h"
 
 #import "UIImage+imgColor.h"
+
+#import "MainViewController.h"
 
 
 @interface MSTabBarController ()
@@ -20,30 +21,53 @@
 
 #pragma mark - Life Cycle
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-  // 利用KVO来使用自定义的tabBar
-    [self setValue:[[MSCustomTabBar alloc] init] forKey:@"tabBar"];
-    [self addAllChildViewController];
-    self.tabBar.barTintColor = [UIColor whiteColor];
  
- CGRect rect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
- UIGraphicsBeginImageContext(rect.size);
- CGContextRef context = UIGraphicsGetCurrentContext();
- CGContextSetFillColorWithColor(context, [[UIColor clearColor] CGColor]);
- CGContextFillRect(context, rect);
- UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
- UIGraphicsEndImageContext();
-  // [self.tabBar setBackgroundImage:img];
- [self.tabBar setShadowImage:img];
- 
-// [self.tabBar setBackgroundImage:[UIImage imageNamed:@"tabbarbg3.jpg"]];
+	[self addAllChildViewController];
+   //设置UI
+   [self settingUI];
+  //初始化customBar
+ [self initCustomBar];
  
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)initCustomBar
+{
+  // 利用KVO来使用自定义的tabBar
+ MSCustomTabBar *customBar =  [[MSCustomTabBar alloc] init];
+ 
+	[self setValue:customBar forKey:@"tabBar"];
+  //设置中间按钮点击方法
+ __weak MSTabBarController *weakSelf = self;
+  //回调
+ [customBar setClickBtn:^(UIButton * sender){
+  if (weakSelf.clickBtn) {
+	weakSelf.clickBtn(sender);
+  }
+  }];
+}
+
+-(void)settingUI
+{
+ self.tabBar.barTintColor = [UIColor whiteColor];
+ 
+ CGRect rect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+ 
+ UIGraphicsBeginImageContext(rect.size);
+ 
+ CGContextRef context = UIGraphicsGetCurrentContext();
+ 
+ CGContextSetFillColorWithColor(context, [[UIColor clearColor] CGColor]);
+ 
+ CGContextFillRect(context, rect);
+ 
+ UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+ UIGraphicsEndImageContext();
+ 
+ [self.tabBar setShadowImage:img];
+
 }
 
 #pragma mark - Private Methods
@@ -51,8 +75,8 @@
 // 添加全部的 childViewcontroller
 - (void)addAllChildViewController
 {
-    UIViewController *homeVC = [[UIViewController alloc] init];
-    homeVC.view.backgroundColor = [UIColor redColor];
+    MainViewController *homeVC = [[MainViewController alloc] init];
+  //homeVC.view.backgroundColor = [UIColor redColor];
     [self addChildViewController:homeVC title:@"首页" imageNamed:@"tabBar_home"];
     
     UIViewController *activityVC = [[UIViewController alloc] init];
