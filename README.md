@@ -1,2 +1,3 @@
-# bigTabBar
-Tabbar上加大按钮 
+# MSCustomTabBarController
+
+![MSCustomTabBarController](demo-0.gif)
