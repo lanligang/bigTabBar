@@ -13,7 +13,6 @@
 
 #define SPACE_CERTER_BTN -1.0f
 
-
  //背景色
 #define CustomBar_BarBackGroundColor  [UIColor whiteColor]
 

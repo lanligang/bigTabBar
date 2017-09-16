@@ -16,6 +16,9 @@
 
 #import "UIImage+imgColor.h"
 
+#import "UIFont+add.h"
+
+
 @interface MSCustomTabBar	()
 
 
@@ -23,7 +26,7 @@
 
 @property (nonatomic, strong) UIBezierPath		*cirCleBezierPath;
 
-
+@property (nonatomic, strong) UILabel		*centerLable;
 
 @end
 
@@ -36,8 +39,11 @@
  if (self)
   {
   
-  [self addSubview:self.centerBtn];
+    [self addSubview:self.centerBtn];
+    [self addSubview:self.centerLable];
+     _centerLable.text = @"佛圈";
     [self.layer addSublayer:self.circleLayer];
+    [self bringSubviewToFront:_centerLable];
 
  }
   return self;
@@ -141,6 +147,7 @@
  _circleLayer.strokeColor = [UIColor lightGrayColor].CGColor;
 
  self.circleLayer.path = _cirCleBezierPath.CGPath;
+ _centerLable.center = CGPointMake(buttonCenterPoint.x, barHeight-10);
  
  
 }
@@ -172,7 +179,7 @@
 {
  if (_centerBtn == nil) {
   _centerBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 60)];
-  [_centerBtn setImage:[UIImage imageNamed:@"发布"] forState:UIControlStateNormal];
+  [_centerBtn setImage:[UIImage imageNamed:@"大教堂"] forState:UIControlStateNormal];
   [_centerBtn addTarget:self action:@selector(clickCenterBtn:) forControlEvents:UIControlEventTouchUpInside];
  }
  return _centerBtn;
@@ -209,5 +216,21 @@
  }
  
 }
+
+-(UILabel *)centerLable
+{
+ if (_centerLable==nil)
+  {
+		_centerLable = [[UILabel alloc]init];
+  _centerLable.bounds = CGRectMake(0, 0, 70, 15);
+  _centerLable.textAlignment = NSTextAlignmentCenter;
+  _centerLable.font = [UIFont fontWithLocalName:@"STXINGKA.ttf" andSize:18.0f];
+  _centerLable.textColor = [UIColor redColor];
+  }
+	return _centerLable;
+}
+
+
+
 
 @end

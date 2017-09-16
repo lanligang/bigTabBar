@@ -12,6 +12,8 @@
 
 #import "MainViewController.h"
 
+#import "ActivityVC.h"
+
 
 @interface MSTabBarController ()
 
@@ -26,8 +28,6 @@
     [super viewDidLoad];
  
 	[self addAllChildViewController];
-   //设置UI
-   [self settingUI];
   //初始化customBar
  [self initCustomBar];
  
@@ -49,26 +49,6 @@
   }];
 }
 
--(void)settingUI
-{
-// self.tabBar.barTintColor = [UIColor clearColor];
-// CGRect rect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-// 
-// UIGraphicsBeginImageContext(rect.size);
-// 
-// CGContextRef context = UIGraphicsGetCurrentContext();
-// 
-// CGContextSetFillColorWithColor(context, [[UIColor clearColor] CGColor]);
-// 
-// CGContextFillRect(context, rect);
-// 
-// UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-// UIGraphicsEndImageContext();
-// 
-// [self.tabBar setShadowImage:img];
-// [self.tabBar  setBackgroundImage:img];
-
-}
 
 #pragma mark - Private Methods
 
@@ -79,8 +59,8 @@
   //homeVC.view.backgroundColor = [UIColor redColor];
     [self addChildViewController:homeVC title:@"首页" imageNamed:@"tabBar_home"];
     
-    UIViewController *activityVC = [[UIViewController alloc] init];
-    activityVC.view.backgroundColor = [UIColor yellowColor];
+    ActivityVC *activityVC = [[ActivityVC alloc] init];
+ 
     [self addChildViewController:activityVC title:@"活动" imageNamed:@"tabBar_activity"];
     
     UIViewController *findVC = [[UIViewController alloc] init];
