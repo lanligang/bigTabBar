@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "91E790B262A94249331ABA52846FFF9D63E14FA7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "91E790B262A94249331ABA52846FFF9D63E14FA7" : 9223372036854775807,
+    "3D9A6C0EAE8E5BBB626A633D6D105DE759FAAB56" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9C3FF12B-93E5-4A04-8DA8-CC4006079C96",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "91E790B262A94249331ABA52846FFF9D63E14FA7" : "bigTabBar\/",
+    "3D9A6C0EAE8E5BBB626A633D6D105DE759FAAB56" : "..\/ld"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MSCustomTabBarController",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MSCustomTabBarController.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lanligang\/ld.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3D9A6C0EAE8E5BBB626A633D6D105DE759FAAB56"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lanligang\/bigTabBar.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "91E790B262A94249331ABA52846FFF9D63E14FA7"
+    }
+  ]
+}
