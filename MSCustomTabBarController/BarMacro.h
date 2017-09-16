@@ -11,16 +11,11 @@
 #import <UIKit/UIKit.h>
 
 
-#define SPACE_CERTER_BTN 5.0f
+#define SPACE_CERTER_BTN -1.0f
 
 
  //背景色
 #define CustomBar_BarBackGroundColor  [UIColor whiteColor]
-
-
-
-
-
 
 
 #endif /* BarMacro_h */

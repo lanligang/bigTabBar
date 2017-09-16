@@ -14,6 +14,7 @@
 
 #import "BarMacro.h"
 
+#import "UIImage+imgColor.h"
 
 @interface MSCustomTabBar	()
 
@@ -37,6 +38,7 @@
   
   [self addSubview:self.centerBtn];
     [self.layer addSublayer:self.circleLayer];
+
  }
   return self;
 }
@@ -134,7 +136,7 @@
 
  
  
- _circleLayer.fillColor = [CustomBar_BarBackGroundColor colorWithAlphaComponent:0.99].CGColor;
+ _circleLayer.fillColor = [CustomBar_BarBackGroundColor colorWithAlphaComponent:1.0f].CGColor;
  _circleLayer.lineWidth = 0.5f;
  _circleLayer.strokeColor = [UIColor lightGrayColor].CGColor;
 
@@ -170,7 +172,7 @@
 {
  if (_centerBtn == nil) {
   _centerBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 60)];
-  [_centerBtn setImage:[UIImage imageNamed:@"centerIcon"] forState:UIControlStateNormal];
+  [_centerBtn setImage:[UIImage imageNamed:@"发布"] forState:UIControlStateNormal];
   [_centerBtn addTarget:self action:@selector(clickCenterBtn:) forControlEvents:UIControlEventTouchUpInside];
  }
  return _centerBtn;

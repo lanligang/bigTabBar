@@ -51,22 +51,22 @@
 
 -(void)settingUI
 {
- self.tabBar.barTintColor = [UIColor whiteColor];
- 
- CGRect rect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
- 
- UIGraphicsBeginImageContext(rect.size);
- 
- CGContextRef context = UIGraphicsGetCurrentContext();
- 
- CGContextSetFillColorWithColor(context, [[UIColor clearColor] CGColor]);
- 
- CGContextFillRect(context, rect);
- 
- UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
- UIGraphicsEndImageContext();
- 
- [self.tabBar setShadowImage:img];
+// self.tabBar.barTintColor = [UIColor clearColor];
+// CGRect rect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+// 
+// UIGraphicsBeginImageContext(rect.size);
+// 
+// CGContextRef context = UIGraphicsGetCurrentContext();
+// 
+// CGContextSetFillColorWithColor(context, [[UIColor clearColor] CGColor]);
+// 
+// CGContextFillRect(context, rect);
+// 
+// UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+// UIGraphicsEndImageContext();
+// 
+// [self.tabBar setShadowImage:img];
+// [self.tabBar  setBackgroundImage:img];
 
 }
 
