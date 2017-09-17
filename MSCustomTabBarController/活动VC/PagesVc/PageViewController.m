@@ -15,6 +15,9 @@
 #import "LocalFileLoader.h"
 #import "UIImageView+WebCache.h"
 
+#import "NSString+YYAdd.h"
+#import "NSObject+CGD_ADD.h"
+
 
 @interface PageViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *mineTableView;
@@ -42,16 +45,25 @@
     [super viewDidLoad];
  NSDictionary *dic =  [LocalFileLoader loadJsonFileWithName:@"huanjiu"];
  NSDictionary *dic2 =  [LocalFileLoader loadJsonFileWithName:@"xs"];
+ __weak __typeof(self) weakSelf = self;
 
- 
+ [self aSyns:^{
+  
+  BaseModel *model = [[BaseModel alloc]init];
+  BaseModel *model2 = [[BaseModel alloc]init];
+  
+  [model yy_modelSetWithDictionary:dic];
+  [model2 yy_modelSetWithDictionary:dic2];
+  [weakSelf.dataSource addObjectsFromArray:model.tracks];
+  [weakSelf.dataSource addObjectsFromArray:model2.tracks];
+  
+  [weakSelf mainSys:^{
+	
+	[weakSelf.mineTableView reloadData];
+	
+  }];
+ }];
 
-   BaseModel *model = [[BaseModel alloc]init];
-   BaseModel *model2 = [[BaseModel alloc]init];
-
-	[model yy_modelSetWithDictionary:dic];
-   [model2 yy_modelSetWithDictionary:dic2];
-   [self.dataSource addObjectsFromArray:model.tracks];
-   [self.dataSource addObjectsFromArray:model2.tracks];
  
  [_mineTableView registerNib:[UINib nibWithNibName:@"PageTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
 }
@@ -104,7 +116,10 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
  
- return 160.0f;
+ 
+   BaseModel *model =  self.dataSource[indexPath.row];
+
+  return model.cellHeight;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

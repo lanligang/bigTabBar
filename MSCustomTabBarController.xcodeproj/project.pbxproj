@@ -75,6 +75,7 @@
 		8F43F38B1F6BF489009AAF53 /* AppDelegate+ThirdPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F43F38A1F6BF489009AAF53 /* AppDelegate+ThirdPart.m */; };
 		8FA2612C1F6E64590064C986 /* PageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA2612A1F6E64590064C986 /* PageTableViewCell.m */; };
 		8FA2612D1F6E64590064C986 /* PageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA2612B1F6E64590064C986 /* PageTableViewCell.xib */; };
+		8FA261301F6E83410064C986 /* NSString+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA2612F1F6E83410064C986 /* NSString+YYAdd.m */; };
 		8FFAC7371F6D757E0065A321 /* CKContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAC7251F6D757E0065A321 /* CKContainerView.m */; };
 		8FFAC7381F6D757E0065A321 /* CKPagingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAC7271F6D757E0065A321 /* CKPagingManager.m */; };
 		8FFAC7391F6D757E0065A321 /* CKSegmentBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAC7291F6D757E0065A321 /* CKSegmentBar.m */; };
@@ -232,6 +233,8 @@
 		8FA261291F6E64590064C986 /* PageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTableViewCell.h; sourceTree = "<group>"; };
 		8FA2612A1F6E64590064C986 /* PageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTableViewCell.m; sourceTree = "<group>"; };
 		8FA2612B1F6E64590064C986 /* PageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageTableViewCell.xib; sourceTree = "<group>"; };
+		8FA2612E1F6E83410064C986 /* NSString+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YYAdd.h"; sourceTree = "<group>"; };
+		8FA2612F1F6E83410064C986 /* NSString+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YYAdd.m"; sourceTree = "<group>"; };
 		8FFAC7241F6D757E0065A321 /* CKContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKContainerView.h; sourceTree = "<group>"; };
 		8FFAC7251F6D757E0065A321 /* CKContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKContainerView.m; sourceTree = "<group>"; };
 		8FFAC7261F6D757E0065A321 /* CKPagingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKPagingManager.h; sourceTree = "<group>"; };
@@ -533,6 +536,8 @@
 				8F43F3801F6BE3C5009AAF53 /* next.png */,
 				8F43F3811F6BE3C5009AAF53 /* last.png */,
 				8F43F3821F6BE3C5009AAF53 /* close.png */,
+				8FA2612E1F6E83410064C986 /* NSString+YYAdd.h */,
+				8FA2612F1F6E83410064C986 /* NSString+YYAdd.m */,
 				8F43F2781F6BE11B009AAF53 /* SDWebImage */,
 				8F43F2421F6BE029009AAF53 /* YYModel */,
 				8F43F1431F6BDF35009AAF53 /* MCPlayer */,
@@ -764,6 +769,7 @@
 				8FFAC73A1F6D757E0065A321 /* CKSegmentBarConfig.m in Sources */,
 				A1B53F8D1D06BDC7000AC2C2 /* main.m in Sources */,
 				8F32DF2D1F6CBE5900F183FD /* SnailQuickMaskPopups.m in Sources */,
+				8FA261301F6E83410064C986 /* NSString+YYAdd.m in Sources */,
 				8F43F1551F6BDF35009AAF53 /* NSString+MD5.m in Sources */,
 				8F43F22B1F6BDFDF009AAF53 /* NSObject+CGD_ADD.m in Sources */,
 				8FFAC7421F6D77100065A321 /* ActivityVC.m in Sources */,
