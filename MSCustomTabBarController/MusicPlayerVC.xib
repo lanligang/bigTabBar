@@ -190,7 +190,7 @@
                 <constraint firstItem="h1L-L6-WcX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xTv-Zz-U4P"/>
                 <constraint firstItem="rU6-Hg-WYD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="zmL-Dw-3vu"/>
             </constraints>
-            <point key="canvasLocation" x="-554.5" y="51.5"/>
+            <point key="canvasLocation" x="-668" y="23"/>
         </view>
     </objects>
     <resources>

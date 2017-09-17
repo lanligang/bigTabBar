@@ -73,6 +73,8 @@
 		8F43F3871F6BE3C5009AAF53 /* last.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F43F3811F6BE3C5009AAF53 /* last.png */; };
 		8F43F3881F6BE3C5009AAF53 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F43F3821F6BE3C5009AAF53 /* close.png */; };
 		8F43F38B1F6BF489009AAF53 /* AppDelegate+ThirdPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F43F38A1F6BF489009AAF53 /* AppDelegate+ThirdPart.m */; };
+		8FA2612C1F6E64590064C986 /* PageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA2612A1F6E64590064C986 /* PageTableViewCell.m */; };
+		8FA2612D1F6E64590064C986 /* PageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA2612B1F6E64590064C986 /* PageTableViewCell.xib */; };
 		8FFAC7371F6D757E0065A321 /* CKContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAC7251F6D757E0065A321 /* CKContainerView.m */; };
 		8FFAC7381F6D757E0065A321 /* CKPagingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAC7271F6D757E0065A321 /* CKPagingManager.m */; };
 		8FFAC7391F6D757E0065A321 /* CKSegmentBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAC7291F6D757E0065A321 /* CKSegmentBar.m */; };
@@ -227,6 +229,9 @@
 		8F43F3891F6BF489009AAF53 /* AppDelegate+ThirdPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+ThirdPart.h"; sourceTree = "<group>"; };
 		8F43F38A1F6BF489009AAF53 /* AppDelegate+ThirdPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ThirdPart.m"; sourceTree = "<group>"; };
 		8F43F38C1F6C002C009AAF53 /* BarMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarMacro.h; sourceTree = "<group>"; };
+		8FA261291F6E64590064C986 /* PageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTableViewCell.h; sourceTree = "<group>"; };
+		8FA2612A1F6E64590064C986 /* PageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTableViewCell.m; sourceTree = "<group>"; };
+		8FA2612B1F6E64590064C986 /* PageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageTableViewCell.xib; sourceTree = "<group>"; };
 		8FFAC7241F6D757E0065A321 /* CKContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKContainerView.h; sourceTree = "<group>"; };
 		8FFAC7251F6D757E0065A321 /* CKContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKContainerView.m; sourceTree = "<group>"; };
 		8FFAC7261F6D757E0065A321 /* CKPagingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKPagingManager.h; sourceTree = "<group>"; };
@@ -464,6 +469,9 @@
 				8FFAC7431F6D77230065A321 /* PageViewController.h */,
 				8FFAC7441F6D77230065A321 /* PageViewController.m */,
 				8FFAC7451F6D77230065A321 /* PageViewController.xib */,
+				8FA261291F6E64590064C986 /* PageTableViewCell.h */,
+				8FA2612A1F6E64590064C986 /* PageTableViewCell.m */,
+				8FA2612B1F6E64590064C986 /* PageTableViewCell.xib */,
 			);
 			path = PagesVc;
 			sourceTree = "<group>";
@@ -688,6 +696,7 @@
 				8F43F2391F6BE016009AAF53 /* MusicTableViewCell.xib in Resources */,
 				8F32DF401F6CC4FF00F183FD /* gd@2x.png in Resources */,
 				A1B53F9B1D06BDC7000AC2C2 /* LaunchScreen.storyboard in Resources */,
+				8FA2612D1F6E64590064C986 /* PageTableViewCell.xib in Resources */,
 				8F43F3881F6BE3C5009AAF53 /* close.png in Resources */,
 				8F43F3841F6BE3C5009AAF53 /* pasue.png in Resources */,
 				8FFAC7471F6D77230065A321 /* PageViewController.xib in Resources */,
@@ -767,6 +776,7 @@
 				A1B53FC01D06BE59000AC2C2 /* MSTabBarController.m in Sources */,
 				8F43F2A21F6BE11B009AAF53 /* SDWebImagePrefetcher.m in Sources */,
 				8F32DF291F6CBE3C00F183FD /* UIView+SnailUse.m in Sources */,
+				8FA2612C1F6E64590064C986 /* PageTableViewCell.m in Sources */,
 				8F43F2A61F6BE11B009AAF53 /* UIImage+WebP.m in Sources */,
 				8F32DF241F6CBE3C00F183FD /* UIAlertController+SnailUse.m in Sources */,
 				8F43F2A11F6BE11B009AAF53 /* SDWebImageManager.m in Sources */,

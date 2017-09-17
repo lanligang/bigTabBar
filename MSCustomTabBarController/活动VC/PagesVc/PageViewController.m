@@ -8,32 +8,137 @@
 
 #import "PageViewController.h"
 
+#import "PageTableViewCell.h"
+
+#import "BaseModel.h"
+
+#import "LocalFileLoader.h"
+#import "UIImageView+WebCache.h"
+
+
 @interface PageViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *mineTableView;
+@property (nonatomic, strong) NSMutableArray		*dataSource;
+
 
 @end
 
 @implementation PageViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
- 
 
-
+-(NSMutableArray *)dataSource
+{
+ if (_dataSource==nil)
+  {
+		_dataSource = [[NSMutableArray alloc]init];
+  }
+	return _dataSource;
 }
 
-- (void)didReceiveMemoryWarning {
+
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+ NSDictionary *dic =  [LocalFileLoader loadJsonFileWithName:@"huanjiu"];
+ NSDictionary *dic2 =  [LocalFileLoader loadJsonFileWithName:@"xs"];
+
+ 
+
+   BaseModel *model = [[BaseModel alloc]init];
+   BaseModel *model2 = [[BaseModel alloc]init];
+
+	[model yy_modelSetWithDictionary:dic];
+   [model2 yy_modelSetWithDictionary:dic2];
+   [self.dataSource addObjectsFromArray:model.tracks];
+   [self.dataSource addObjectsFromArray:model2.tracks];
+ 
+ [_mineTableView registerNib:[UINib nibWithNibName:@"PageTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+}
+
+
+#pragma mark - ****************tableview Delegate DataSource
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+ return 1;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+ 
+ static NSString *identifier = @"cell";
+ PageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+ 
+ [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+ cell.currentIndexPath = indexPath;
+  BaseModel *model =  self.dataSource[indexPath.row];
+ cell.seleteButton.selected = [self.dataSource[indexPath.row] isSeleted];
+ 
+ cell.nameLable.text =model.track_title;
+ [cell.cellImgView sd_setImageWithURL:[NSURL URLWithString:model.cover_url_small]];
+ cell.msgLable.text = model.track_intro;
+ cell.clipsToBounds  = YES;
+  __weak __typeof(self) weakSelf = self;
+ 
+ 
+ [cell setSeletedAction:^(UIButton *sender,NSIndexPath *actionIndexPath){
+  
+  [weakSelf.dataSource[actionIndexPath.row] setIsSeleted:sender.selected];
+  [weakSelf.mineTableView reloadData];
+  
+ }];
+ 
+ 
+ 
+ 
+ return cell;
+ 
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+ 
+ [tableView deselectRowAtIndexPath:indexPath animated:NO];
+ 
+ 
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+ 
+ return 160.0f;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+ 
+ return self.dataSource.count;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+ 
+ return CGFLOAT_MIN;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+ return 0.0f;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+ 
+ return nil;
+ 
+}
+
+
+
+
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
