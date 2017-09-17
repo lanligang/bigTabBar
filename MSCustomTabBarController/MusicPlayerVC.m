@@ -32,6 +32,10 @@
  NSArray *_mstArray;
  
 }
+
+@property (nonatomic, assign) CGFloat lastY;
+
+
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
 
 
@@ -69,7 +73,6 @@
    self.view.transform = CGAffineTransformMakeScale(1, 1);
  } completion:^(BOOL finished) {
   if (finished) {
-//	[self.player playMediaWithUrl:_musicUrl tempPath:nil desPath:nil delegate:weakSelf];
   }
  }];
  
@@ -108,6 +111,64 @@ CGRect rect =  [UIScreen mainScreen].bounds;
   //PlayFailNotification
  [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(PlayFailNotification:) name:@"PlayFailNotification" object:nil];
  
+ UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panRecognizer:)];
+ [self.view addGestureRecognizer:pan];
+
+ 
+ 
+}
+
+-(void)panRecognizer:(UIPanGestureRecognizer *)pan
+{
+ 
+  CGPoint locationPoint = [pan locationInView:pan.view.superview];
+ 
+ if (pan.state == UIGestureRecognizerStateBegan) {
+
+  _lastY = locationPoint.y;
+ }else if (pan.state == UIGestureRecognizerStateChanged){
+  
+  CGFloat changeY =	locationPoint.y-_lastY;
+  
+  _lastY = locationPoint.y;
+  
+  
+  self.view.frame = CGRectMake(0, self.view.frame.origin.y+changeY, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+
+ }else if (pan.state == UIGestureRecognizerStateCancelled || pan.state == UIGestureRecognizerStateEnded){
+  
+  if (self.view.frame.origin.y>400)
+  {
+
+  [self dissmissVc];
+  
+  }else if(self.view.frame.origin.y<-CGRectGetHeight(self.view.frame)+400){
+	[UIView animateWithDuration:0.25 delay:0 usingSpringWithDamping:1.0f initialSpringVelocity:2 options:UIViewAnimationOptionLayoutSubviews animations:^{
+	 
+	   self.view.alpha = 0.5;
+	 
+		self.view.frame = CGRectMake(0, -CGRectGetHeight(self.view.frame), CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+	 
+		
+	} completion:^(BOOL finished) {
+	 		self.view.alpha = 0;
+	}];
+	[self performSelector:@selector(dissmissVc) withObject:nil afterDelay:0.3];
+	
+  } else {
+	[UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:2 options:UIViewAnimationOptionLayoutSubviews animations:^{
+		
+		self.view.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+		
+	} completion:^(BOOL finished) {
+	}];
+  }
+ }
+}
+
+-(void)dissmissVc
+{
+ 	 [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)PlayEndNotification:(NSNotification *)noti
