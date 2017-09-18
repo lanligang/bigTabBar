@@ -23,9 +23,13 @@
 + (instancetype)defultCongfig;
 //链式编程体验
 - (CKSegmentBarConfig *(^)(UIColor *color))nor_color;
+
 - (CKSegmentBarConfig *(^)(UIColor *color))sel_color;
+
 - (CKSegmentBarConfig *(^)(UIColor *color))line_color;
+
 - (CKSegmentBarConfig *(^)(UIColor *))bg_color;
+
 - (CKSegmentBarConfig *(^)(CGFloat font))tt_font;
 
 @end

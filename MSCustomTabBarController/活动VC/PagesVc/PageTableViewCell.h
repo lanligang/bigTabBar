@@ -26,10 +26,10 @@ typedef void(^BtnSeleted)(id sender,NSIndexPath *indexPath);
 
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLable;
-@property (weak, nonatomic) IBOutlet UILabel *dateLable;
+@property (weak, nonatomic) IBOutlet UILabel *timeLable;
 
 
-@property (weak, nonatomic) IBOutlet UILabel *addressLable;
+@property (weak, nonatomic) IBOutlet UILabel *shotMsgLable;
 
 @property (weak, nonatomic) IBOutlet UILabel *msgLable;
 

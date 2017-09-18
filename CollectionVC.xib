@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CollectionVC">
+            <connections>
+                <outlet property="mineCollectionView" destination="1yP-ed-WtM" id="lhq-pR-wLA"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="水浒.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="qir-jT-92B">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="1yP-ed-WtM">
+                    <rect key="frame" x="0.0" y="50" width="375" height="487.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uH5-ce-RV0" customClass="CMPhoto3DFlowLayout">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="2a5-eS-rnf"/>
+                        <outlet property="delegate" destination="-1" id="8e7-uO-DDg"/>
+                    </connections>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="1yP-ed-WtM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1CF-rc-afb"/>
+                <constraint firstItem="1yP-ed-WtM" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="1.3" id="CZ0-wh-4RT"/>
+                <constraint firstAttribute="bottom" secondItem="qir-jT-92B" secondAttribute="bottom" id="FTZ-Fh-27a"/>
+                <constraint firstItem="qir-jT-92B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Isv-dj-0ZI"/>
+                <constraint firstItem="qir-jT-92B" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ix4-1F-KYs"/>
+                <constraint firstAttribute="trailing" secondItem="qir-jT-92B" secondAttribute="trailing" id="hqO-bR-qIn"/>
+                <constraint firstAttribute="trailing" secondItem="1yP-ed-WtM" secondAttribute="trailing" id="mhV-EW-mEy"/>
+                <constraint firstItem="1yP-ed-WtM" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-40" id="trS-Pn-hzI"/>
+            </constraints>
+            <point key="canvasLocation" x="-562.5" y="-230.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="水浒.jpeg" width="500" height="742"/>
+    </resources>
+</document>

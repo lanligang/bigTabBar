@@ -19,6 +19,8 @@
 #import "NSObject+CGD_ADD.h"
 
 
+
+
 @interface PageViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *mineTableView;
 @property (nonatomic, strong) NSMutableArray		*dataSource;
@@ -90,6 +92,8 @@
  [cell.cellImgView sd_setImageWithURL:[NSURL URLWithString:model.cover_url_small]];
  cell.msgLable.text = model.track_intro;
  cell.clipsToBounds  = YES;
+ cell.timeLable.text = model.duration;
+ cell.shotMsgLable.text = model.subAlbum.album_title;
   __weak __typeof(self) weakSelf = self;
  
  

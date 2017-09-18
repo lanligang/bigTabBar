@@ -11,6 +11,7 @@
 #import "PageViewController.h"
 
 #import "MainViewController.h"
+#import "CollectionVC.h"
 
 @interface ActivityVC ()<IPagingManager>
 
@@ -26,9 +27,9 @@
     [super viewDidLoad];
    self.view.backgroundColor = [UIColor whiteColor];
    self.automaticallyAdjustsScrollViewInsets = NO;
+
+  manager = [CKPagingManager manager];
  
- 
-   manager = [CKPagingManager manager];
    manager.delegate = self;
  
  [manager loadPagingWithConfig:^(CKSegmentBarConfig *config) {
@@ -41,8 +42,7 @@
 	//设置背景颜色
   config.backgroundColor = [UIColor clearColor];
  }];
-
-
+ 
 }
 
  //类型
@@ -60,7 +60,7 @@
 - (NSArray<UIViewController *> *)pagingControllerComponentChildViewControllers {
  
  return @[[PageViewController new],
-			 [PageViewController new],
+			 [CollectionVC new],
 			 [PageViewController new],
 			 [PageViewController new],
 			 [PageViewController new],
